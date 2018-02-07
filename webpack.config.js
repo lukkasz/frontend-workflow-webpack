@@ -1,6 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
 var config =  {
@@ -28,10 +27,21 @@ var config =  {
             options: {
               name:'[name].[ext]',
               outputPath:'assets/images/',
-              //publicPath: ''
+              publicPath: ''
             }
           }
         ]
+      },
+      {
+        test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name:'[name].[ext]',
+            outputPath:'assets/fonts/',
+            publicPath: '../../'
+          }
+        }]
       }
     ]
   },
@@ -51,10 +61,7 @@ var config =  {
       filename: 'assets/css/app.css',
       disable: false,
       allChunks: true
-    }),
-    new CopyWebpackPlugin([
-      {from: 'src/assets/images', to: 'assets/images'}
-    ])
+    })
   ]
 }
 

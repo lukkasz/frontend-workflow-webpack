@@ -1,5 +1,4 @@
-body {
-  background: url('assets/images/bg.png') center center no-repeat;
-}
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome.scss';
 
 @import 'assets/scss/header';
