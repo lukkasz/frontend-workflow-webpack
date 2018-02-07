@@ -6,7 +6,8 @@ var config =  {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    //publicPath: 'assets/',
+    filename: 'assets/js/app.bundle.js'
   },
   module: {
     rules: [
@@ -28,10 +29,10 @@ var config =  {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Custom title',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
     new ExtractTextPlugin({
-      filename: 'app.css',
+      filename: 'assets/css/app.css',
       disable: false,
       allChunks: true
     })
